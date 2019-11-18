@@ -16,9 +16,7 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
 import Header from "@/components/Header.vue";
-import Catalog from "@/components/Catalog.vue";
 import Item from "@/components/Item.vue";
 import AddItem from "@/components/AddItem.vue";
 import List from "@/components/List.vue";
@@ -26,9 +24,7 @@ import List from "@/components/List.vue";
 export default {
   name: "home",
   components: {
-    HelloWorld,
     Header,
-    Catalog,
     Item,
     AddItem,
     List
@@ -36,6 +32,6 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

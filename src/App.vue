@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 * {
   margin: 0px;
   padding: 0px;
@@ -16,8 +16,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  // background-image: url('./assets/bootstrap.jpeg');
-  
 }
 
 #nav {
