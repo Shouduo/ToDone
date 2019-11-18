@@ -1,8 +1,5 @@
 <template>
   <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-
     <Header />
     <div class="container">
       <div class="row mt-4">
@@ -14,12 +11,6 @@
         </div>
       </div>
     </div>
-
-<!--  -->
-
-<!--  -->
-
-
   </div>
 </template>
 
@@ -46,7 +37,5 @@ export default {
 </script>
 
 <style scoped>
-/* .col-md-8{
-  overflow: hidden;
-} */
+
 </style>

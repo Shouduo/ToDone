@@ -2,9 +2,7 @@
   <div>
     <h5 class="d-flex justify-content-between align-items-center mb-3">
       <span class="text-muted">Add Todos</span>
-      <!-- <span class="badge badge-secondary badge-pill">3</span> -->
     </h5>
-    <!-- <hr class="d-sm-none" /> -->
     <form>
       <div class="input-group mb-2">
         <select class="custom-select" v-model="item.type">
@@ -22,7 +20,6 @@
         />
       </div>
 
-      <!--  -->
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text">From</span>
@@ -35,18 +32,21 @@
           @dp-hide="startTimeChange"
           required
           autocomplete="off"
-          readonly="readonly"
-        />
+          readonly="readonly" 
+        />  <!-- readonly attribute prevents the keyboard shown up on phones -->
       </div>
 
-      <div class="input-group" style="position:relative; transform:translate(0px, -1px); z-index:99;">
+      <div
+        class="input-group"
+        style="position:relative; transform:translate(0px, -1px); z-index:99;"
+      >
         <div class="input-group-prepend">
           <span class="input-group-text">To</span>
         </div>
         <date-picker
           id="end_time"
           class="form-control input-sm"
-          value=""
+          value
           :config="options_end"
           @dp-hide="endTimeChange"
           required
@@ -60,10 +60,6 @@
         <button class="btn btn-primary" @click="addItem">add</button>
       </div>
     </form>
-
-    <!--  -->
-
-    <!--  -->
   </div>
 </template>
 <script>
@@ -95,6 +91,7 @@ export default {
         format: "YYYY-MM-DD  HH:mm  dddd",
         useCurrent: false,
         showTodayButton: true,
+        showClose: true,
         locale: "en",
         maxDate: false,
         ignoreReadonly: true,
@@ -103,14 +100,15 @@ export default {
           today: "Now"
         },
         widgetPositioning: {
-          horizontal: 'right',
-          vertical: 'auto'
+          horizontal: "right",
+          vertical: "auto"
         }
       },
       options_end: {
         format: "YYYY-MM-DD  HH:mm  dddd",
         useCurrent: false,
         showTodayButton: true,
+        showClose: true,
         locale: "en",
         minDate: new Date(),
         ignoreReadonly: true,
@@ -119,8 +117,8 @@ export default {
           today: "Now"
         },
         widgetPositioning: {
-          horizontal: 'right',
-          vertical: 'auto'
+          horizontal: "right",
+          vertical: "auto"
         }
       }
     };
@@ -134,7 +132,8 @@ export default {
     startTimeChange: function() {
       this.item.start_time = $("#start_time")
         .data("DateTimePicker")
-        .date()._d.getTime();
+        .date()
+        ._d.getTime();
       if (this.item.start_time > new Date().getTime()) {
         this.options_end.minDate = new Date(this.item.start_time);
       }
@@ -147,7 +146,8 @@ export default {
       ) {
         this.item.end_time = $("#end_time")
           .data("DateTimePicker")
-          .date()._d.getTime();
+          .date()
+          ._d.getTime();
         this.options_start.maxDate = new Date(this.item.end_time);
       }
     },
@@ -172,7 +172,7 @@ export default {
           this.item.content = "";
           this.item.end_time = 0;
           $("#end_time").val("");
-        }, 100);
+        }, 0);
       }
     },
     reset: function() {

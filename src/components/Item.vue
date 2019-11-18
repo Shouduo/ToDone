@@ -1,5 +1,6 @@
 <template>
   <li type="none">
+    <!-- item head -->
     <div v-if="!itemInfo.is_item">
       <hr class="d-sm-none" />
       <h5 class="d-flex justify-content-between align-items-center mb-3">
@@ -7,7 +8,7 @@
         <span class="badge badge-secondary badge-pill">{{itemInfo.start_time}}</span>
       </h5>
     </div>
-    <!--  -->
+    <!-- item -->
     <div class="mb-3" style="height: 50px;" v-if="itemInfo.is_item">
       <div class="progress">
         <div
@@ -67,7 +68,6 @@ export default {
       if(this.percent == "100%" && this.timeLeft == "overdue") {
         VueEvent.$off("updateTime", this.updateTimeAndProgress);
       }
-      // console.log('update')
     },
     checkboxChange: function() { 
       VueEvent.$off("updateTime", this.updateTimeAndProgress);
@@ -78,7 +78,6 @@ export default {
   },
   mounted() {
     this.updateTimeAndProgress();
-
     VueEvent.$on("updateTime", this.updateTimeAndProgress);
   }
 };
@@ -122,7 +121,6 @@ export default {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  /*text-decoration: line-through;*/
 }
 
 .custom-control-label {
@@ -143,8 +141,6 @@ export default {
   align-items: center;
   align-self: flex-start;
   min-width: 100px;
-  /*  position: absolute;
-    right: 0px;*/
   padding-right: 20px;
   transition: all 0.5s ease;
 }
@@ -172,11 +168,6 @@ export default {
   opacity: 1;
   align-self: flex-end;
   margin-right: 10px;
-  // transform: translate(0px, -2px);
-  /*float: none;*/
-  /*    position: absolute;
-    right: 0px;*/
-  /*margin-left: 55px;*/
 }
 
 .close:hover {
@@ -192,22 +183,18 @@ export default {
 .progress-bar[type="0"] {
   background-color: #28a745;
 }
-
 .custom-control-input:checked ~ .custom-control-label[type="0"]::before {
   color: #fff;
   border-color: #28a745;
   background-color: #28a745;
 }
-
 .custom-control-input:focus ~ .custom-control-label[type="0"]::before {
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
-
 .custom-control-input:focus:not(:checked)
   ~ .custom-control-label[type="0"]::before {
   border-color: #66b378;
 }
-
 .custom-control-input:not(:disabled):active
   ~ .custom-control-label[type="0"]::before {
   color: #fff;
@@ -219,22 +206,18 @@ export default {
 .progress-bar[type="1"] {
   background-color: #ffc107;
 }
-
 .custom-control-input:checked ~ .custom-control-label[type="1"]::before {
   color: #fff;
   border-color: #ffc107;
   background-color: #ffc107;
 }
-
 .custom-control-input:focus ~ .custom-control-label[type="1"]::before {
   box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
 }
-
 .custom-control-input:focus:not(:checked)
   ~ .custom-control-label[type="1"]::before {
   border-color: #fdd765;
 }
-
 .custom-control-input:not(:disabled):active
   ~ .custom-control-label[type="1"]::before {
   color: #fff;
@@ -246,22 +229,18 @@ export default {
 .progress-bar[type="2"] {
   background-color: #dc3545;
 }
-
 .custom-control-input:checked ~ .custom-control-label[type="2"]::before {
   color: #fff;
   border-color: #dc3545;
   background-color: #dc3545;
 }
-
 .custom-control-input:focus ~ .custom-control-label[type="2"]::before {
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
-
 .custom-control-input:focus:not(:checked)
   ~ .custom-control-label[type="2"]::before {
   border-color: #e96472;
 }
-
 .custom-control-input:not(:disabled):active
   ~ .custom-control-label[type="2"]::before {
   color: #fff;

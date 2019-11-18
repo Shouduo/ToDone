@@ -21,17 +21,17 @@ export default {
   name: "List",
   data() {
     return {
-      listType: 0,
+      listType: 0,    //0:allList, 1:timeLeftList, 2:EmergencyList
       itemlist: [
         //mock data
         {
           is_item: false,
           content: "Ongoing",
-          type: -1,           //-1:头部, 0:normal, 1:major, 2:deadly
-          start_time: 0,
+          type: -1,   //-1:itemHead, 0:normal, 1:major, 2:deadly
+          start_time: 0,    //badge count
           end_time: 0,
-          checked: false,
-          overdue: false,
+          checked: false, //unused
+          overdue: false, //unused
           id: 1073645789900
         },
         {
@@ -50,8 +50,8 @@ export default {
           type: 0,
           start_time: new Date().getTime(),
           end_time: 0,
-          checked: false,
-          overdue: false,
+          checked: false, //unused
+          overdue: false, //unused
           id: 1573645789900
         },
         {
@@ -79,7 +79,7 @@ export default {
     };
   },
   computed: {
-    ongoingList() {
+    ongoingList() {   //this function would be called when item added, deleted or checked
       var ongoingHead = _.filter(this.itemlist, {
         is_item: false,
         content: "Ongoing"
@@ -88,8 +88,8 @@ export default {
         is_item: true,
         checked: false
       });
-      ongoingHead[0].start_time = ongoingItem.length;
-      VueEvent.$cookies.set('itemlist', JSON.stringify(this.itemlist), "30d");
+      ongoingHead[0].start_time = ongoingItem.length;   //badge count
+      VueEvent.$cookies.set("itemlist", JSON.stringify(this.itemlist), "30d");    //save itemlist to cookies
       return _.concat(ongoingHead, ongoingItem);
     },
     finishedList() {
@@ -107,7 +107,7 @@ export default {
     allList() {
       return _.concat(this.ongoingList, this.finishedList);
     },
-    timeLeftList() {
+    timeLeftList() { //less time-left item first
       var ongoing = _.concat(
         _.head(this.ongoingList),
         _.orderBy(
@@ -126,7 +126,7 @@ export default {
       );
       return _.concat(ongoing, finished);
     },
-    emergencyList() {
+    emergencyList() { //deadly, major, normal item sequence
       var ongoing = _.concat(
         _.head(this.ongoingList),
         _.orderBy(
@@ -145,33 +145,33 @@ export default {
       );
       return _.concat(ongoing, finished);
     },
-    shownList() {
-      if(this.listType == 0) return this.allList;
-      else if(this.listType == 1) return this.timeLeftList;
+    shownList() { //banding list
+      if (this.listType == 0) return this.allList;
+      else if (this.listType == 1) return this.timeLeftList;
       else return this.emergencyList;
     }
   },
   created() {
-    if(VueEvent.$cookies.isKey("itemlist")) {
-     this.itemlist = JSON.parse(VueEvent.$cookies.get('itemlist'));
+    if (VueEvent.$cookies.isKey("itemlist")) {
+      this.itemlist = JSON.parse(VueEvent.$cookies.get("itemlist"));  //load itemlist from cookies
     }
   },
   mounted() {
-    TimeLeft.updateNowTime();
+    TimeLeft.updateNowTime(); //start a commom update interval
     var that = this;
-    VueEvent.$on("addItem", function(data) {
+    VueEvent.$on("addItem", function(data) { //listen to AddItem.vue component
       that.itemlist.push(data);
     });
 
-    VueEvent.$on("deleteItem", function(data) {
+    VueEvent.$on("deleteItem", function(data) { //listen to Item.vue component 
       that.itemlist = that.itemlist.filter(function(item) {
         return item.id !== data;
       });
     });
 
-    VueEvent.$on("changeList", function(data) {
+    VueEvent.$on("changeList", function(data) { //listen to Header.vue component
       that.listType = data;
-    })
+    });
   },
   components: {
     Item
@@ -182,24 +182,21 @@ export default {
 
 <style lang="scss" scoped>
 .list-complete-item {
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
-.list-complete-enter, .list-complete-leave-to {
+.list-complete-enter,
+.list-complete-leave-to { //add item animate
   opacity: 0;
   transform: translateY(30px);
 }
-.list-complete-move[itype="-1"] {
+.list-complete-move[itype="-1"] { //items head animate
   opacity: 0.2;
-  // background-color: white;
-  // transform: translateY(30px);
 }
-.list-complete-leave-active {
-  position: absolute;
+.list-complete-leave-active { //delete item animate
+  position: absolute; //make the item leave the place in DOM at the moment when delete animate started
   width: 100%;
-  
 }
 .unorderList {
-  position: relative;
-  // background-color: black;
+  position: relative; //in case the deleting item overflows the 'col-md-8' container
 }
 </style>
