@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-      <a class="navbar-brand" href="#">✅ToDone</a>
+      <a class="navbar-brand" href="#"><img id="logo" src="@/assets/logo.png"/>ToDone</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -46,5 +46,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+#logo {
+  height: 1.4rem;
+  margin: 0 .5rem;
+  vertical-align: middle;
+  transform: translate(0px, -1.5px);
+ }
 </style>
