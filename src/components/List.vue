@@ -182,7 +182,7 @@ export default {
 
 <style lang="scss" scoped>
 .list-complete-item {
-  transition: all 0.3s ease-in-out;
+  transition: all 10s ease-in-out;
 }
 .list-complete-enter,
 .list-complete-leave-to { //add item animate

@@ -11,7 +11,6 @@ var TimeLeft = {
         if(minutes < 10){
             minutes = "0" + minutes;
         }
-        // console.log(hours + ":" + minutes + " left");
         return hours + ":" + minutes + " left"; 
     },
     updateNowTime() {
@@ -19,9 +18,6 @@ var TimeLeft = {
         setInterval(function() {
             that.nowTime = new Date(); 
             VueEvent.$emit("updateTime");
-            // this.$cookies.set('test', 'Hello world!', 1);
-            // console.log(this.$cookies.get('test'));
-            // console.log(this)
         }, 1000);
     },
     progress(startTime, endTime) {
