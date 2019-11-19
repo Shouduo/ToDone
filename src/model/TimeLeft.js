@@ -21,10 +21,10 @@ var TimeLeft = {
         }, 1000);
     },
     progress(startTime, endTime) {
-        if(endTime - this.nowTime < 0) return "100%";
+        if(endTime - this.nowTime < 0) return "99.99%";
         var rangeSeconds = parseInt((endTime - startTime) / 1000);
         var goneSeconds = parseInt((this.nowTime - startTime) / 1000);
-        var percent = Math.ceil((goneSeconds / rangeSeconds) * 100);
+        var percent = (goneSeconds / rangeSeconds) * 100;
         return percent + "%";
     }
 }
