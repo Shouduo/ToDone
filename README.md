@@ -10,10 +10,10 @@ npm run serve
 ```
 
 ## ScreenShots
-*PC browser
+* PC browser
 ![img](/screenshots/screenshot_1.png "PC browser")
 
-*Phone browser
+* Phone browser
 ![img](/screenshots/screenshot_2.png "Phone browser")
 
 ## License
