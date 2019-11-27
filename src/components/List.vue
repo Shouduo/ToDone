@@ -30,8 +30,9 @@ export default {
           type: -1,   //-1:itemHead, 0:normal, 1:major, 2:deadly
           start_time: 0,    //badge count
           end_time: 0,
-          checked: false, //unused
-          overdue: false, //unused
+          diff_time: "",
+          percent: "",
+          checked: false,
           id: 1073645789900
         },
         {
@@ -40,8 +41,9 @@ export default {
           type: -1,
           start_time: 0,
           end_time: 0,
+          diff_time: "",
+          percent: "",
           checked: false,
-          overdue: false,
           id: 1173645789900
         },
         {
@@ -50,8 +52,9 @@ export default {
           type: 0,
           start_time: new Date().getTime(),
           end_time: new Date().getTime() + 60 * 1000,
-          checked: false, //unused
-          overdue: false, //unused
+          diff_time: "",
+          percent: "",
+          checked: false,
           id: 1573645789900
         },
         {
@@ -60,8 +63,9 @@ export default {
           type: 1,
           start_time: new Date().getTime(),
           end_time: new Date().getTime() + 90 * 1000,
+          diff_time: "",
+          percent: "",
           checked: false,
-          overdue: false,
           id: 1573645789901
         },
         {
@@ -70,8 +74,9 @@ export default {
           type: 2,
           start_time: new Date().getTime(),
           end_time: new Date().getTime() + 120 * 1000,
+          diff_time: "",
+          percent: "",
           checked: false,
-          overdue: false,
           id: 1573645789902
         }
         //

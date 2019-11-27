@@ -85,8 +85,9 @@ export default {
         type: 0,
         start_time: new Date().getTime(),
         end_time: 0,
+        diff_time: "",
+        percent: "",
         checked: false,
-        overdue: false,
         id: 0
       },
       options_start: {
@@ -195,8 +196,9 @@ export default {
           type: this.item.type,
           start_time: this.item.start_time,
           end_time: this.item.end_time,
+          diff_time: this.item.diff_time,
+          percent: this.item.percent,
           checked: this.item.checked,
-          overdue: this.item.overdue,
           id: uid
         });
         setTimeout(() => {

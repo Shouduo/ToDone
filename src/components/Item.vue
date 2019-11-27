@@ -14,7 +14,7 @@
         <div
           class="progress-bar progress-bar-striped"
           :type="itemInfo.type"
-          :style="{'width':percent}"
+          :style="{'width':itemInfo.percent}"
         ></div>
       </div>
       <div class="progress progress-cover" :ichecked="itemInfo.checked">
@@ -33,7 +33,7 @@
           </div>
         </div>
         <div class="rightContent">
-          <div class="countdown">{{timeLeft}}</div>
+          <div class="countdown">{{itemInfo.diff_time}}</div>
           <button type="button" class="close" @click="deleteItem">&times;</button>
         </div>
       </div>
@@ -49,8 +49,8 @@ export default {
   name: "Item",
   data() {
     return {
-      timeLeft: "",
-      percent: ""
+      // timeLeft: "",
+      // percent: ""
     };
   },
   computed: {},
@@ -63,10 +63,10 @@ export default {
       VueEvent.$off("updateTime", this.updateTimeAndProgress);
     },
     updateTimeAndProgress: function() {
-      // if (!this.itemInfo.checked) {
-        this.timeLeft = TimeLeft.timeLeft(this.itemInfo.end_time);
-        this.percent = TimeLeft.progress(this.itemInfo.start_time, this.itemInfo.end_time);
-      // }
+      if (!this.itemInfo.checked) {
+        this.itemInfo.diff_time = TimeLeft.timeLeft(this.itemInfo.end_time);
+        this.itemInfo.percent = TimeLeft.progress(this.itemInfo.start_time, this.itemInfo.end_time);
+      }
       // if(this.percent == "100%" && this.timeLeft == "overdue") { //stop update when items overdue
       //   VueEvent.$off("updateTime", this.updateTimeAndProgress);
       // }

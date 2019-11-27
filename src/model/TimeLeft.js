@@ -1,7 +1,7 @@
 import VueEvent from "@/model/VueEvent.js";
 
 var TimeLeft = {
-    updateInverval: 100,
+    updateInterval: 100,
     nowTime: new Date().getTime(),
     timeLeft(endTime) {
         // var nowTime = new Date();
@@ -21,7 +21,7 @@ var TimeLeft = {
         setInterval(function() {
             that.nowTime = new Date(); 
             VueEvent.$emit("updateTime");
-        }, that.updateInverval);
+        }, that.updateInterval);
     },
     progress(startTime, endTime) {
         if(endTime - this.nowTime < 0) return "99.99%"; // So that items would'n have ugly unexpectly black corners when animated
