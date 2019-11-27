@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h5 class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="d-flex justify-content-between align-items-center mb-3" id="addHead" data-toggle="collapse" href="#addForm">
       <span class="text-muted">Add Todos</span>
+      <span class="badge badge-secondary badge-pill fa fa-chevron-left"></span>
+      <span class="fas"></span>
     </h5>
-    <form>
+    <form id="addForm">
       <div class="input-group mb-2">
         <select class="custom-select" v-model="item.type">
           <option class="custom-input" value="0">Normal</option>
@@ -123,12 +125,39 @@ export default {
       }
     };
   },
-  // mounted() {
+  mounted() {
   //   VueEvent.$on("updateTime", ()=> {
   //     this.options_end.minDate = new Date();
   //   });
-  // },
+    
+    this.addItemCollapse();
+    window.onresize = () => this.addItemCollapse();
+      
+    
+    $("#addForm").on("show.bs.collapse", () => {
+      $(".fas").addClass("fa-rotate-180");
+      // $(".fas").addClass("fa-flip-vertical");
+    });
+    $("#addForm").on("hide.bs.collapse", () => {
+      $(".fas").removeClass("fa-rotate-180");
+      // $(".fas").removeClass("fa-flip-vertical");
+    });
+  },
   methods: {
+    addItemCollapse: function() {
+      if(document.body.clientWidth < 768){
+        $("#addForm").addClass("collapse");
+        $("#addHead").attr("data-toggle", "collapse");
+        $("#addHead").attr("href", "#addForm");
+        $(".fas").addClass("fa-chevron-down");
+      } else {
+        $("#addForm").removeClass("collapse");   
+        $("#addHead").removeAttr("data-toggle");
+        $("#addHead").removeAttr("href");
+        $(".fas").removeClass("fa-chevron-down");  
+      }
+    },
+
     startTimeChange: function() {
       this.item.start_time = $("#start_time")
         .data("DateTimePicker")
@@ -138,6 +167,7 @@ export default {
         this.options_end.minDate = new Date(this.item.start_time);
       }
     },
+
     endTimeChange: function() {
       if (
         $("#end_time")
@@ -151,6 +181,7 @@ export default {
         this.options_start.maxDate = new Date(this.item.end_time);
       }
     },
+
     addItem: function() {
       if (
         this.item.content !== "" &&
@@ -175,6 +206,7 @@ export default {
         }, 0);
       }
     },
+
     reset: function() {
       setTimeout(() => {
         this.item.content = "";
@@ -220,4 +252,16 @@ export default {
 [readonly="readonly"] {
   background-color: white !important;
 }
+
+.fas {
+  color: gray;
+  margin-right: 4px;
+  transition: all ease .5s;
+} 
+
+// @media only screen and (max-width: 768px) {
+//   .collapse {
+//     display: none;
+//   }
+// }
 </style>

@@ -2,7 +2,7 @@
   <li type="none">
     <!-- item head -->
     <div v-if="!itemInfo.is_item">
-      <hr class="d-sm-none" />
+      <!-- <hr class="d-sm-none" /> -->
       <h5 class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-muted">{{itemInfo.content}}</span>
         <span class="badge badge-secondary badge-pill">{{itemInfo.start_time}}</span>
@@ -63,13 +63,15 @@ export default {
       VueEvent.$off("updateTime", this.updateTimeAndProgress);
     },
     updateTimeAndProgress: function() {
-      this.timeLeft = TimeLeft.timeLeft(this.itemInfo.end_time);
-      this.percent = TimeLeft.progress(this.itemInfo.start_time,this.itemInfo.end_time);
+      // if (!this.itemInfo.checked) {
+        this.timeLeft = TimeLeft.timeLeft(this.itemInfo.end_time);
+        this.percent = TimeLeft.progress(this.itemInfo.start_time, this.itemInfo.end_time);
+      // }
       // if(this.percent == "100%" && this.timeLeft == "overdue") { //stop update when items overdue
       //   VueEvent.$off("updateTime", this.updateTimeAndProgress);
       // }
     },
-    checkboxChange: function() { 
+    checkboxChange: function() {
       VueEvent.$off("updateTime", this.updateTimeAndProgress);
       // if (!this.itemInfo.checked && (this.percent != "100%" || this.timeLeft != "overdue")) {
       //   VueEvent.$on("updateTime", this.updateTimeAndProgress);
@@ -250,5 +252,4 @@ export default {
   background-color: #f7a9b1;
   border-color: #f7a9b1;
 }
-
 </style>
