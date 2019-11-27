@@ -125,7 +125,7 @@ export default {
   },
   // mounted() {
   //   VueEvent.$on("updateTime", ()=> {
-  //     this.nowTime = new Date();
+  //     this.options_end.minDate = new Date();
   //   });
   // },
   methods: {

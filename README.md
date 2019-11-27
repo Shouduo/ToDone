@@ -7,7 +7,7 @@ check this [link](https://shouduo.github.io/ToDone/#/) up and go to beat the clo
 ## Project setup
 ```
 git clone https://github.com/Shouduo/ToDone.git
-cd ToDone
+cd todone
 npm install
 npm run serve
 ```

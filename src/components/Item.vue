@@ -65,13 +65,16 @@ export default {
     updateTimeAndProgress: function() {
       this.timeLeft = TimeLeft.timeLeft(this.itemInfo.end_time);
       this.percent = TimeLeft.progress(this.itemInfo.start_time,this.itemInfo.end_time);
-      if(this.percent == "100%" && this.timeLeft == "overdue") {
-        VueEvent.$off("updateTime", this.updateTimeAndProgress);
-      }
+      // if(this.percent == "100%" && this.timeLeft == "overdue") { //stop update when items overdue
+      //   VueEvent.$off("updateTime", this.updateTimeAndProgress);
+      // }
     },
     checkboxChange: function() { 
       VueEvent.$off("updateTime", this.updateTimeAndProgress);
-      if (!this.itemInfo.checked && (this.percent != "100%" || this.timeLeft != "overdue")) {
+      // if (!this.itemInfo.checked && (this.percent != "100%" || this.timeLeft != "overdue")) {
+      //   VueEvent.$on("updateTime", this.updateTimeAndProgress);
+      // }
+      if (!this.itemInfo.checked) {
         VueEvent.$on("updateTime", this.updateTimeAndProgress);
       }
     }

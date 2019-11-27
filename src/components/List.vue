@@ -46,30 +46,30 @@ export default {
         },
         {
           is_item: true,
-          content: "mock data normal",
+          content: "This is a easy use todo list,",
           type: 0,
           start_time: new Date().getTime(),
-          end_time: 0,
+          end_time: new Date().getTime() + 60 * 1000,
           checked: false, //unused
           overdue: false, //unused
           id: 1573645789900
         },
         {
           is_item: true,
-          content: "mock data major",
+          content: "Just add tasks and set deadline,",
           type: 1,
           start_time: new Date().getTime(),
-          end_time: 0,
+          end_time: new Date().getTime() + 90 * 1000,
           checked: false,
           overdue: false,
           id: 1573645789901
         },
         {
           is_item: true,
-          content: "mock data deadly",
+          content: "then move your butt and beat the clock.",
           type: 2,
           start_time: new Date().getTime(),
-          end_time: 0,
+          end_time: new Date().getTime() + 120 * 1000,
           checked: false,
           overdue: false,
           id: 1573645789902
