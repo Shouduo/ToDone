@@ -145,7 +145,7 @@ export default {
   flex-direction: column;
   align-items: center;
   align-self: flex-start;
-  min-width: 100px;
+  min-width: 105px;
   padding-right: 20px;
   transition: all 0.5s ease;
 }
