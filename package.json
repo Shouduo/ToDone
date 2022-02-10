@@ -22,7 +22,7 @@
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "pc-bootstrap4-datetimepicker": "^4.17.50",
     "sass-loader": "^8.0.0",
     "serialize-javascript": "^2.1.2",
