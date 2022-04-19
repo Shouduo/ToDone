@@ -25,7 +25,7 @@
     "pc-bootstrap4-datetimepicker": "^4.17.50",
     "sass": "^1.50.1",
     "sass-loader": "^8.0.0",
-    "serialize-javascript": "^6.0.0",
+    "serialize-javascript": "^3.1.0",
     "vue-cookies": "^1.8.0",
     "vue-template-compiler": "^2.6.10"
   },
