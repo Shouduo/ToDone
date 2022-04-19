@@ -9,7 +9,7 @@
   "dependencies": {
     "acorn": ">=6.4.1",
     "bootstrap": "4.3.1",
-    "minimist": ">=1.2.2",
+    "minimist": ">=1.2.6",
     "popper.js": "^1.16.0",
     "vue": "^2.6.10",
     "vue-bootstrap-datetimepicker": "^5.0.1",
