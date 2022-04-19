@@ -1,6 +1,6 @@
 {
   "name": "todone",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -19,14 +19,14 @@
     "@fortawesome/fontawesome-free": "^5.11.2",
     "@vue/cli-plugin-router": "^4.0.0",
     "@vue/cli-service": "^4.0.0",
-    "jquery": "^3.4.1",
-    "lodash": "^4.17.15",
-    "moment": "^2.24.0",
+    "jquery": "^3.6.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.3",
     "pc-bootstrap4-datetimepicker": "^4.17.50",
-    "sass": "^1.49.9",
+    "sass": "^1.50.1",
     "sass-loader": "^8.0.0",
-    "serialize-javascript": "^2.1.2",
-    "vue-cookies": "^1.5.13",
+    "serialize-javascript": "^6.0.0",
+    "vue-cookies": "^1.8.0",
     "vue-template-compiler": "^2.6.10"
   },
   "postcss": {
